@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+
+/*
+# Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1366px
+
+## Colors
+
+### Primary
+
+- Scissors Gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%)
+- Paper Gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%)
+- Rock Gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%)
+- Lizard Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%)
+- Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%)
+
+### Neutral
+
+- Dark Text: hsl(229, 25%, 31%)
+- Score Text: hsl(229, 64%, 46%)
+- Header Outline: hsl(217, 16%, 45%)
+
+### Background
+
+- Radial Gradient: hsl(214, 47%, 23%) to hsl(237, 49%, 15%)
+
+## Fonts
+
+- Family: [Barlow Semi Condensed](https://fonts.google.com/specimen/Barlow+Semi+Condensed)
+- Weights: 600, 700
+
+*/
+
+
+
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+h1,h2,h3,h4, span,small{
+    font-family: 'Barlow Semi Condensed';
+    font-weight: 700;
+    text-transform: uppercase;
+    color: aliceblue;
+}
+span{
+    font-size: 25px;
+}
+:root{
+    /*- Scissors Gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%)
+- Paper Gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%)
+- Rock Gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%)*/
+    --paper: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    --darkText: hsl(229, 25%, 31%);
+    --scoreText: hsl(229, 64%, 46%);
+    --header: hsl(217, 16%, 45%);
+}
+body{
+    min-height:100vh;
+    background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.btn{
+    background-color: aliceblue;
+    padding: 20px 25px;
+    border: 15px solid red;
+    border-radius:50%;
+    cursor: pointer;
+    margin: 30px;
+}
+.paper{
+    border-color: hsl(230, 89%, 65%);
+    box-shadow: 0px 6px 0px 0px hsl(230, 58%, 50%);
+}
+.rock{
+    /*hsl(349, 71%, 52%) to hsl(349, 70%, 56%)*/
+    border-color: hsl(349, 70%, 56%);
+    padding: 25px 25px;
+    box-shadow: 0px 6px 0px 0px hsl(349, 57%, 42%);
+}
+.scissors{
+    border-color: hsl(40, 84%, 53%);
+    box-shadow: 0px 6px 0px 0px hsl(39, 64%, 41%);
+}
+.btn:hover{
+    box-shadow: 0px 0px 10px 10px hsl(0, 0%, 73%);
+
+}
+.score-container{
+    display: flex;
+    text-align: center;
+}
+.score{
+    background-color: whitesmoke;
+    padding: 30px;
+    margin: 25px;
+    border-radius:5px;
+}
+.score h3, .score span{
+    color: hsl(229, 25%, 31%);
+}
+small{
+    margin-top: 70px;
+}
+@media (max-width:570px){
+    body{
+        justify-content: start;
+    }
+    h1{
+        margin: 30px 10px;
+        text-align: center;
+    }
+    .btn-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .btn{
+        margin: 10px;
+    }
+}
