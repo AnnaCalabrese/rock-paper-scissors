@@ -1,43 +1,55 @@
 const BTN = document.querySelector(".btn")
+const ROCK = document.querySelector(".rock")
+const PAPER = document.querySelector(".paper")
+const SCISSORS = document.querySelector(".scissors")
+const WINNER_TEXT = document.querySelector(".winner-text")
+const SCORE_PLAYER =document.querySelector(".score-player")
+const SCORE_PC = document.querySelector(".score-pc")
 
-const item = [ 'carta', 'forbice', 'sasso'];
 
-//////////////////////////////////////////////////////
-function randomPc (){
-  const randomItem = Math.floor(Math.random() * item.length);
-  return item[randomItem]
+const computerPlay = function(){
+  const ARRAY = ['rock','paper','scissors']
+  const RANDOM = Math.floor(Math.random() * ARRAY.length)
+  return ARRAY[RANDOM]
 }
 
-
-/*Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
-Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).*/
-let playerChoice = 'carta'// prompt()
-console.log(playerChoice)
-let pcChoice = randomPc()
-console.log(pcChoice)
 
 
 function round(playerSelection, computerSelection){
-  if(
-    playerSelection === 'carta' && computerSelection ==='sasso' || 
-    playerSelection === 'forbice' && computerSelection === 'carta' || 
-    playerSelection === 'sasso' && computerSelection ==='forbice'
-  ) {
-    console.log("Player Wins! with " + playerSelection)
-  } else {
-    console.log("Pc wins with " + computerSelection)
+
+ 
+  
+      if(
+        playerSelection === "rock" && computerSelection === "scissors" ||
+        playerSelection === "paper" && computerSelection === "rock" ||
+        playerSelection === "scissors" && computerSelection === "paper" ){
+          WINNER_TEXT.innerHTML = "✔️ Player wins! " + playerSelection + " beats " + computerSelection
+          SCORE_PLAYER.innerHTML++
+          console.log("Player Wins")
+        } else if( playerSelection === computerSelection){
+          WINNER_TEXT.innerHTML = "🙌🏻 Tie! Try again."
+
+        } else {
+          WINNER_TEXT.innerHTML = "❌ Pc wins! " + computerSelection + " beats " + playerSelection
+          console.log("Pc Wins")
+          SCORE_PC.innerHTML++
+
+        }
+  
   }
-}
-let funzione = round(playerChoice, pcChoice)
-
-BTN.addEventListener('click', funzione)
 
 
 
 
-/*
-BTN.addEventListener('click', funzione)
-BTN.addEventListener('click', ()=>{
-    console.log("hey you little fucke")
-})
-*/
+
+
+SCISSORS.addEventListener('click',  function(){
+  round('scissors', computerPlay())
+} )
+ROCK.addEventListener('click',   function(){
+  round('rock', computerPlay())
+} )
+PAPER.addEventListener('click',   function(){
+  round('paper', computerPlay())
+} )
+
